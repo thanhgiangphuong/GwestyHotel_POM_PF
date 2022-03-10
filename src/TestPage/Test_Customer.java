@@ -2,7 +2,6 @@ package TestPage;
 
 import BasePage.BaseSetup;
 import PageFactory_Customer.*;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -23,16 +22,18 @@ public class Test_Customer extends BaseSetup {
         driver = setDriver("http://14.176.232.213:8084/");
         searchingPage = new SearchingPage(driver);
     }
+
     @Test(priority = 0)
-    public void SearchRoom_Successfully(){
+    public void SearchRoom_Successfully() {
         searchingPage.Searching();
         roomPage = new RoomPage(driver);
         String expectText = "Rooms";
         String actualText = roomPage.getTextRoomsPage().trim();
         Assert.assertEquals(actualText, expectText);
     }
+
     @Test(priority = 1)
-    public void BookRoom_Successfully(){
+    public void BookRoom_Successfully() {
         roomPage.clickViewDetailsBtn();
         roomDetailsPage = new RoomDetailsPage(driver);
 
@@ -46,8 +47,9 @@ public class Test_Customer extends BaseSetup {
         String actualText = paymentPage.getTextCheckoutTitle().trim();
         Assert.assertEquals(actualText, expectText);
     }
+
     @Test(priority = 2)
-    public void Payment_Successfully(){
+    public void Payment_Successfully() {
         paymentPage.Payment();
         confirmPage = new ConfirmPage(driver);
         String expectText = "Confirm";
