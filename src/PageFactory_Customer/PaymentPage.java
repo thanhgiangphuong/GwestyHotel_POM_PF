@@ -6,8 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class PaymentPage {
+    // initialize driver variable
     WebDriver driver;
 
+    // Find elements of Payment page by Page Factory design pattern
     @FindBy(xpath = "/html/body/section[1]/div/div/div/div/div/div/h2")
     private WebElement CheckoutTitle;
 
@@ -26,14 +28,19 @@ public class PaymentPage {
     @FindBy(xpath = "//*[@id=\"cardForm\"]/div[6]/input[2]")
     private WebElement PayNowBtn;
 
+    // Create Constructor method with Page Factory to link the variables with locators
     public PaymentPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public String getTextCheckoutTitle(){
+
+    // Create getTextCheckoutTitle method
+    public String getTextCheckoutTitle() {
         return CheckoutTitle.getText();
     }
-    public void Payment(){
+
+    // Create Payment method
+    public void Payment() {
         CardNumber.sendKeys("1111111111111111");
         NameOnCard.sendKeys("PHUONG THANH GIANG");
         ExpiryDate.sendKeys("05/25");

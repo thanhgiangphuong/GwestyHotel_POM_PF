@@ -6,8 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AddGuestDetailsPage {
+    // initialize driver variable
     WebDriver driver;
 
+    // Find elements of Add Guest Detail page by Page Factory design pattern
     @FindBy(id = "name")
     private WebElement FullName;
 
@@ -47,30 +49,26 @@ public class AddGuestDetailsPage {
     @FindBy(xpath = "//*[@id=\"guest\"]/div/div[8]/button[1]/span")
     private WebElement SubmitBtn;
 
+    // Create Constructor method with Page Factory to link the variables with locators
     public AddGuestDetailsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public void inputGuestInRoom(){
-        FullName.sendKeys("Le Thu Thu Hang");
 
+    // Create inputGuestInRoom method
+    public void inputGuestInRoom() {
+        FullName.sendKeys("Le Thu Thu Hang");
         Gender.click();
         MalePick.click();
-
         DateOfBirth.click();
         DateOfBirthPicker.click();
         OKPicker.click();
-
         Room.click();
         RoomPick.click();
-
         Address.sendKeys("Da Nang");
-
         IDchose.click();
         IDCard.click();
         IDNumber.sendKeys("123456789");
-
         SubmitBtn.click();
-
     }
 }

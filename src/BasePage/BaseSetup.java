@@ -2,9 +2,9 @@ package BasePage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 
+// Open driver, open webservice, close driver => use for all objects
 public class BaseSetup {
     private WebDriver driver;
     String driverPath = "C:\\chromedriver.exe";
@@ -13,8 +13,8 @@ public class BaseSetup {
     public WebDriver getDriver() {
         return driver;
     }
+
     // Setter
-//    @BeforeClass
     public WebDriver setDriver(String appURL) {
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
@@ -23,7 +23,8 @@ public class BaseSetup {
         driver.manage().window().maximize();
         return driver;
     }
-    //    @AfterClass
+
+    // Close driver method
     public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
         driver.quit();

@@ -6,8 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BookNowPage {
+    // initialize driver variable
     WebDriver driver;
 
+    // Find elements of Book Now page by Page Factory design pattern
     @FindBy(id = "name")
     private WebElement FullName;
 
@@ -26,11 +28,14 @@ public class BookNowPage {
     @FindBy(xpath = "//*[@id=\"user\"]/div/div[1]/div[6]/input")
     private WebElement SubmitBtn;
 
+    // Create Constructor method with Page Factory to link the variables with locators
     public BookNowPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public void inputInfo(){
+
+    // Create input information into Book Now page method
+    public void inputInfo() {
         FullName.sendKeys("Lê Thị Thu Hằng");
         Email.sendKeys("hangly301@gmail.com");
         Phone.sendKeys("3456426452");
@@ -38,5 +43,4 @@ public class BookNowPage {
         TermCheckBox.click();
         SubmitBtn.click();
     }
-
 }
